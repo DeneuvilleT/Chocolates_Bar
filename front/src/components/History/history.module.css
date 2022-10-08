@@ -1,0 +1,144 @@
+.history {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+
+   background-color: whitesmoke;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   padding-bottom: 5vh;
+   color: #333;
+
+   margin: auto;
+   margin-bottom: 6vh;
+   width: 85vw;
+}
+
+.history figure {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+
+   background-image: url('../../assets/feves.webp');
+   background-size: cover;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+   border-radius: 3ex;
+
+   margin: 4vh 0 4% 0;
+   max-width: 1600px;
+   width: 80vw;
+
+   min-height: 220px;
+   max-height: 250px;
+   height: 25vh;
+   z-index: 1;
+}
+
+.history h1 {
+   background-color: whitesmoke;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 5ex;
+   letter-spacing: 2px;
+   text-align: center;
+   font-weight: 450;
+   font-size: 3rem;
+   padding: 20px;
+
+   width: 300px;
+   z-index: 2;
+   color: black;
+}
+
+.history section {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   background-color: rgba(230, 230, 230, 0.678);
+   overflow-y: scroll;
+   text-align: left;
+   padding: 50px 50px;
+
+   width: 70%;
+   height: 800px;
+   margin-bottom: 5vh;
+}
+
+.history h2 {
+   text-align: center;
+   margin: 20px auto;
+   padding-bottom: 5%;
+}
+
+
+.history div {
+   width: 100%;
+   display: block;
+   padding-bottom: 1.50%;
+   margin-bottom: 5%;
+   border-bottom: #333 1px solid;
+}
+
+.history summary {
+   padding: 2% 0 2% 0;
+   font-weight: 650;
+   font-size: 2rem;
+   cursor: pointer;
+}
+
+.history summary + p {
+   padding-bottom: 5%;
+}
+
+@media all and (max-width: 1301px) {
+
+   .history {
+      width: 100%;
+      margin-bottom: 0;
+   }
+}
+
+@media all and (max-width: 1025px) {
+
+   .history section {
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      width: 80vw;
+   }
+
+   .history figure {
+      width: 100vw;
+      border-radius: 0%;
+   }
+}
+
+@media all and (max-width: 751px) {
+   .history {
+      padding-top: 200px;
+      box-shadow: none;
+   }
+
+   .history h1 {
+      padding: 10px;
+   }
+
+   .history section {
+      background-color: whitesmoke;
+      box-shadow: none;
+      height: auto;
+      width: 90%;
+   }
+}
+
+@media all and (max-width:451px) {
+   .history {
+      padding: 250px 0 100px 0;
+   }
+}

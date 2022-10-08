@@ -1,0 +1,181 @@
+.order {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+
+   width: 100vw;
+   margin: 0 auto;
+   padding: 10vh 0;
+
+   background-color: rgb(37, 37, 37);
+   max-width: none;
+}
+
+.order h1 {
+   font-size: 3.75rem;
+   font-weight: 500;
+   font-style: italic;
+   color: #333;
+   padding-left: 20px;
+}
+
+.order h1+p {
+   padding-left: 20px;
+   font-style: italic;
+   font-size: 1.8rem;
+}
+
+.order h4 {
+   font-size: 2rem;
+   font-weight: 500;
+   color: #333;
+}
+
+.order>section {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 4vh;
+
+   background-image: url('../../assets/fond.webp');
+   background-size: cover;
+   background-repeat: no-repeat;
+
+   width: 795px;
+   height: 1124px;
+
+   padding: 20px 25px;
+   filter: brightness(0.8);
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order section section:nth-child(1) {
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: space-between;
+}
+
+.order section>section img {
+   padding: 15px 40px 0 0;
+   width: 25%;
+   max-width: 150px
+}
+
+
+.order section address {
+   display: flex;
+   flex-direction: column;
+   justify-content: right;
+   align-items: flex-end;
+
+   padding-right: 40px;
+   font-size: 2rem;
+   width: 100%;
+}
+
+.order address p {
+   font-size: 2rem;
+   line-height: 125%;
+   color: #333;
+}
+
+.order section address p:nth-child(1) span:nth-child(1) {
+   font-weight: bolder;
+}
+
+.order section>div:nth-child(3) {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+
+   background-color: rgba(245, 222, 179, 0.726);
+   border: solid #333 2px;
+   border-radius: 5px;
+   padding: 1.5vh 1.5vw;
+   width: 100%;
+}
+
+
+
+/* Article */
+.order section section {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   width: 100%;
+}
+
+.order section article {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+
+   background-color: rgba(245, 222, 179, 0.61);
+   border-bottom: solid #333 2px;
+   border-radius: 5px;
+
+   max-height: 40%;
+   margin: 0 20px;
+   padding: 10px 15px;
+   width: 100%;
+}
+
+.order section section article h3 {
+   text-transform: capitalize;
+   font-weight: 400;
+   text-align: left;
+   width: 150px;
+}
+
+.order section section article p {
+   text-align: right;
+   width: 100px;
+}
+
+.order section>section:nth-child(4)>article:nth-child(1) {
+   border-top: solid #333 2px;
+}
+
+.order section section:nth-child(5) {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   flex-basis: 50%;
+   align-items: flex-end;
+
+   font-size: 2.2rem;
+   width: 100%;
+}
+
+.order section section:nth-child(5) h3 {
+   background-color: rgba(245, 222, 179, 0.726);
+   border-top: solid #333 2px;
+   border-bottom: solid #333 2px;
+   border-radius: 5px;
+   padding: 0.7vh 1vw;
+}
+
+@media all and (max-width: 761px) {
+
+   .order {
+      background-color: whitesmoke;
+      box-shadow: none;
+
+      margin: auto;
+      width: 100%;
+   }
+}
+
+@media all and (max-width: 451px) {
+   .order {
+      position: absolute;
+      transform: scale(0.7);
+   }
+}

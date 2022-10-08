@@ -1,0 +1,162 @@
+* {
+  scroll-behavior: smooth;
+  font-family: 'Jost', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background: #6868682f;
+}
+
+::-webkit-scrollbar-thumb {
+  border: solid 0 transparent;
+  background-color: #622f03;
+}
+
+:focus-visible {
+  outline: 0;
+}
+
+html {
+  background-color: whitesmoke;
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(75, 49, 36);
+  background: linear-gradient(0deg,
+      rgba(75, 49, 36, 1) 4%,
+      rgba(100, 58, 33, 1) 40%,
+      rgba(198, 171, 110, 1) 86%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: 1800px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.msg {
+  position: fixed;
+  top: 83%;
+  left: 0;
+
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  gap: 50px !important;
+
+  box-shadow: 0 14px 20px rgb(0, 0, 0, 0.12),
+    0 14px 20px rgba(0, 0, 0, 0.24);
+  /* background: rgb(233, 186, 33); */
+  background-image: url('./assets/fond.webp');
+  background-position: center;
+
+  border-radius: 0.5ex !important;
+  border-left: 5px #7a3b04 solid;
+  border-bottom: 6px #7a3b04 solid;
+
+  font-size: 1.8rem !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  color: #333 !important;
+
+  padding: 20px 25px !important;
+  width: auto;
+  z-index: 4;
+
+  animation: notif 3s 0s;
+}
+
+.rotate {
+  transform: rotate(5760deg);
+}
+
+.rotateEnd {
+    transition: transform 0.1s 0s ease-in;
+}
+
+button,
+svg,
+article,
+a,
+input[type="submit"] {
+  transition: all 0.2s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes notif {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes notifSmart {
+  0% {
+    top: -30%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@media all and (max-width: 1025px) {
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .msg {
+    position: fixed;
+    top: 0;
+    left: auto;
+
+
+    border-left: none;
+    border-right: none;
+    animation: notifSmart 3s 0s;
+    gap: 30px;
+  }
+}
+
+@media all and (max-width: 451px) {
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .msg {
+    margin: 0;
+    width: 100%;
+    font-size: 1.45rem !important;
+  }
+}

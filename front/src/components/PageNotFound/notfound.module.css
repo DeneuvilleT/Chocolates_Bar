@@ -1,0 +1,35 @@
+.notfound {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   background-color: whitesmoke;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   padding-bottom: 5vh;
+   color: #333;
+
+   padding: 10vh 0;
+   margin: auto;
+   margin-bottom: 6vh;
+   width: 85vw;
+}
+
+.notfound h2 {
+   font-weight: bolder !important;
+   font-size: 4rem;
+}
+
+.notfound h3 {
+   font-size: 3rem;
+   color: #7a3b04;
+}
+
+@media all and (max-width: 541px) {
+
+   .notfound {
+      padding-top: 300px;
+      box-shadow: none;
+   }
+}
