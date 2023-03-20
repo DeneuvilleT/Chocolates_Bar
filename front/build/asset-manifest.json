@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.50792024.css",
+    "main.js": "/static/js/main.ef95c15c.js",
+    "static/media/fond.webp": "/static/media/fond.84367f7342a9b54a5b64.webp",
+    "static/media/feves.webp": "/static/media/feves.32b7d9cd2a27d0481b52.webp",
+    "static/media/banner_profile.webp": "/static/media/banner_profile.3026d3e5984cbc815eef.webp",
+    "static/media/banner_home.png": "/static/media/banner_home.10f67343288360e7ff30.png",
+    "static/media/bar_chocolate_white.webp": "/static/media/bar_chocolate_white.3243b2dfca10fe825a58.webp",
+    "static/media/bar_chocolate_milk.webp": "/static/media/bar_chocolate_milk.a5ce2b908cd8613e5292.webp",
+    "static/media/logo_png.webp": "/static/media/logo_png.c215359664964ca45ec7.webp",
+    "static/media/bar_chocolate_dark.webp": "/static/media/bar_chocolate_dark.ae86787cdcdd512b11fa.webp",
+    "static/media/feve.webp": "/static/media/feve.06fb7864053a96027b8c.webp",
+    "static/media/no_photo.webp": "/static/media/no_photo.1679962f8ac38f5a91c2.webp",
+    "index.html": "/index.html",
+    "main.50792024.css.map": "/static/css/main.50792024.css.map",
+    "main.ef95c15c.js.map": "/static/js/main.ef95c15c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50792024.css",
+    "static/js/main.ef95c15c.js"
+  ]
+}

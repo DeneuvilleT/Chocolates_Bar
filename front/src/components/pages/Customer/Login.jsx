@@ -26,6 +26,7 @@ const Login = () => {
       };
 
       const res = await loginUser(datas);
+      
       if (res.status === 200) {
          if (res.data.datas.status === "admin") {
             window.scrollTo(0, 0);

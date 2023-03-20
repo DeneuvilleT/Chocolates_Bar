@@ -1,5 +1,5 @@
 import Customer from "../models/customer.model.js";
-import nodeMail from "../lib/nodeMailing.js";
+import mailing from "../lib/mailing.js";
 import Data from "../models/data.model.js";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
@@ -67,13 +67,13 @@ export const signUp = async (req, res, next) => {
          surname: req.body.surname,
          email: req.body.email,
          password: generatePassHash,
-         picture:''
+         picture: ''
       };
 
       const queryCreate = `INSERT INTO customer (surname, email, password, picture) VALUES (?,?,?,?)`;
       const createUser = await Data.saveDatas(queryCreate, datasCustomer);
 
-      nodeMail(req.body.email);
+      mailing(req.body.email);
 
       return res.status(200).json({ msg: "Félicitations pour la création de votre compte, un email de vérification vous a été envoyé. Pensez à vérifier vos spams." });
 
@@ -91,7 +91,7 @@ export const updateInfos = async (req, res, next) => {
 
       if (datas.password) {
          const generatePassHash = await bcrypt.hash(req.body.datas.password, +process.env.SALT);
-         
+
          req.body.datas.password = generatePassHash;
          query = `UPDATE customer SET 
          email = ?, password = ?, firstname = ?, 
@@ -109,9 +109,13 @@ export const updateInfos = async (req, res, next) => {
       const queryUser = `SELECT * FROM customer
       WHERE customer.id = ?`;
       const newDatas = await Data.recupOne(queryUser, req.params.id)
-
+      res.header(
+         {
+            "Cache-Control": "max-age=0",
+         }
+      );
       return res.status(200).json({
-         msg: "Votre profil a été mis à jour.",
+         msg: "Votre profil a été mis à jour. Les informations seront à jour d'ici 2 minutes.",
          newDatas: newDatas[0]
       });
 
@@ -142,22 +146,21 @@ export const updateEmail = async (req, res, next) => {
 };
 
 
-export const updatePicture = async (req, res, next) => {
+export const updatePicture = async (req, res, next, image, id) => {
    try {
+
       const datas = {
-         picture: req.body.data
+         picture: image
       };
-      
-      const query = `UPDATE customer SET picture = ? WHERE id = ${req.params.id}`;
+
+      const query = `UPDATE customer SET picture = ? WHERE id = ${id}`;
       const updateUser = await Data.saveDatas(query, datas);
-      
+
       const queryUser = `SELECT * FROM customer
       WHERE customer.id = ?`;
-      const newDatas = await Data.recupOne(queryUser, req.params.id);
-      res.header(
-         "Access-Control-Allow-Headers",
-         "Origin, X-Requested-With, Content-Type, Accept"
-      );
+
+      const newDatas = await Data.recupOne(queryUser, id);
+
       return res.status(200).json({
          msg: "Votre photo a été mise à jour.",
          newDatas: newDatas[0]
@@ -171,6 +174,7 @@ export const updatePicture = async (req, res, next) => {
 
 export const loadPicture = async (req, res, next) => {
    try {
+
       if (!req.files || !Object.keys(req.files).length) res.status(400);
 
       req.files.image.mv(`public/images/${req.files.image.name}`, (error) => {
@@ -183,10 +187,8 @@ export const loadPicture = async (req, res, next) => {
       });
 
       const image = `${process.env.URL_BACK}/public/images/${req.files.image.name}`;
-      console.log("Voici l'image",image)
-      return res.status(200).json({
-         url:  image,
-      });
+
+      return updatePicture(req, res, next, image, req.params.id);
 
    } catch (error) {
       return next(error);
@@ -233,7 +235,7 @@ export const loadOrder = async (req, res, next) => {
    } catch (error) {
       return next(error);
    };
-};   
+};
 
 
 export const wakeup = async (req, res, next) => {

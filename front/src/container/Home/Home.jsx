@@ -1,7 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { saveDetail } from '../../slices/datasSlices';
-import { useEffect } from 'react';
-import { wakeUp } from '../../api/user';
 import { Link } from 'react-router-dom';
 
 import styles from './home.module.css';
@@ -10,16 +8,6 @@ import styles from './home.module.css';
 const Home = () => {
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    wake();
-  }, []);
-  
-  const wake = async () => {
-    const res = await wakeUp()
-    console.log(res.data.msg);
-    return console.clear();
-  };
 
   return (
     <main className={styles.home}>

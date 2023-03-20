@@ -1,11 +1,12 @@
 import { faCartShopping, faAddressCard, faUpRightFromSquare, faCamera, faUser } from '@fortawesome/free-solid-svg-icons';
-import { loadDatas, addNewPicture, saveNewPicture, updateInfos } from '../../../api/user';
+import { loadDatas, addNewPicture, updateInfos } from '../../../api/user';
 import { notification, URL_LOCAL, valueOk } from '../../../utilities';
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { setAllOrders } from '../../../slices/datasSlices';
 import { update } from '../../../slices/authSlices';
+import { Icon } from '@iconify/react';
 
 import noPicture from '../../../assets/no_photo.webp';
 import Notfound from '../../PageNotFound/Notfound';
@@ -80,13 +81,11 @@ const Profil = ({ isLog }) => {
     setPick(false);
     setLoading(true);
 
-    const res = await addNewPicture(file.current.files[0]);
-    const save = await saveNewPicture(res.data.url.trim(), infos.id, infos.token);
+    const res = await addNewPicture(file.current.files[0], infos.id, infos.token);
 
-    const updateUser = save.data.newDatas;
+    const updateUser = res.data.newDatas;
     updateUser.token = infos.token;
     dispatch(update(updateUser));
-
     return setLoading(false);
   };
 
@@ -102,13 +101,11 @@ const Profil = ({ isLog }) => {
 
             {!loading ?
               <img src={infos.picture === '' ? noPicture : infos.picture}
+
                 onClick={() => !pick ? setPick(true) : setPick(false)}
                 alt="photo de profil" title="Modifier votre photo de profil" />
               :
-              <iframe src="https://giphy.com/embed/uFymrKF1jQZ9K"
-                style={{ borderRadius: '50%', border: '5px #000000 outset', backgroundColor:"white" }}
-                width="300" height="300" frameBorder="0"
-                className="giphy-embed" allowFullScreen></iframe>}
+              <Icon icon="svg-spinners:clock" width="100" height="100" />}
 
             <FontAwesomeIcon icon={faCamera} title="Modifier votre photo de profil" size="2x"
               onClick={() => !pick ? setPick(true) : setPick(false)} />

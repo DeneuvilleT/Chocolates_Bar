@@ -1,7 +1,7 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-export const URL = "https://chocolatesbar.herokuapp.com";
-export const URL_LOCAL = "https://xn--chocolat-bar-ieb.store";
+export const URL = "https://back-server.online";
+export const URL_LOCAL = "https://chocolate-bar.site";
 
 // export const URL = "http://localhost:9000";
 // export const URL_LOCAL = "http://localhost:3000";

@@ -4,7 +4,6 @@ import 'dotenv/config';
 const { HOSTNAME_DB, NAME_DB, USERNAME_DB, PASSWORD_DB, SOCKET_DB } = process.env;
 
 const pool = mysql.createPool({
-   connectionLimit: 10000,
    socketPath: SOCKET_DB,
    host: HOSTNAME_DB,
    database: NAME_DB,

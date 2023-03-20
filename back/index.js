@@ -8,6 +8,8 @@ import 'dotenv/config';
 
 const app = express();
 
+console.log("Test =======")
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

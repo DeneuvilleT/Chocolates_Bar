@@ -2,21 +2,13 @@ import axios from 'axios';
 import { URL } from '../utilities';
 
 
-export const wakeUp = async () => {
-   try {
-      const res = await axios.get(`${URL}/api/v1/check/`);
-      return res;
-
-   } catch (error) {
-      return error;
-   };
-};
-
-
 export const checkAuth = async (token) => {
    try {
       const res = await axios.get(`${URL}/api/v1/check/auth`, {
-         headers: { "x-acess-token": token }
+         headers: {
+            "x-acess-token": token,
+            "Cache-Control": "max-age=0",
+         }
       });
       return res;
 
@@ -28,7 +20,11 @@ export const checkAuth = async (token) => {
 
 export const loginUser = async (datas) => {
    try {
-      const res = await axios.post(`${URL}/api/v1/customer/signin`, datas);
+      const res = await axios.post(`${URL}/api/v1/customer/signin`, datas, {}, {
+         headers: {
+            "Cache-Control": "max-age=0",
+         }
+      });
       return res;
 
    } catch (error) {
@@ -39,7 +35,11 @@ export const loginUser = async (datas) => {
 
 export const logupNewUser = async (datas) => {
    try {
-      const res = await axios.post(`${URL}/api/v1/customer/signup`, datas);
+      const res = await axios.post(`${URL}/api/v1/customer/signup`, datas, {}, {
+         headers: {
+            "Cache-Control": "max-age=0",
+         }
+      });
       return res;
 
    } catch (error) {
@@ -51,7 +51,10 @@ export const logupNewUser = async (datas) => {
 export const loadDatas = async (id, token) => {
    try {
       const res = await axios.get(`${URL}/api/v1/customer/load/${id}`, {
-         headers: { "x-acess-token": token }
+         headers: {
+            "x-acess-token": token,
+            "Cache-Control": "max-age=0",
+         }
       });
       return res;
 
@@ -64,7 +67,10 @@ export const loadDatas = async (id, token) => {
 export const updateInfos = async (datas, id, token) => {
    try {
       const res = await axios.patch(`${URL}/api/v1/customer/update/${id}`, { datas }, {
-         headers: { "x-acess-token": token }
+         headers: {
+            "x-acess-token": token,
+            "Cache-Control": "max-age=0",
+         }
       });
       return res;
 
@@ -76,33 +82,10 @@ export const updateInfos = async (datas, id, token) => {
 
 export const validateAccount = async (mail) => {
    try {
-      const res = await axios.get(`${URL}/api/v1/customer/updateValidate/${mail}`);
-      return res;
-
-   } catch (error) {
-      return error;
-   };
-};
-
-
-export const addNewPicture = async (file) => {
-   try {
-      const formData = new FormData();
-      formData.append("image", file);
-
-      const res = await axios.post(`${URL}/api/v1/customer/picture`, formData);
-      return res;
-
-   } catch (error) {
-      return error;
-   };
-};
-
-
-export const saveNewPicture = async (data, id, token) => {
-   try {
-      const res = await axios.put(`${URL}/api/v1/customer/update/picture/${id}`, { data }, {
-         headers: { "x-acess-token": token }
+      const res = await axios.get(`${URL}/api/v1/customer/updateValidate/${mail}`, {}, {
+         headers: {
+            "Cache-Control": "max-age=0",
+         }
       });
       return res;
 
@@ -112,10 +95,32 @@ export const saveNewPicture = async (data, id, token) => {
 };
 
 
+export const addNewPicture = async (file, id, token) => {
+
+   try {
+      const formData = new FormData();
+      formData.append("image", file);
+
+      const res = await axios.post(`${URL}/api/v1/customer/picture/${id}`, formData, {
+         headers: {
+            "x-acess-token": token,
+            "Cache-Control": "max-age=0",
+         }
+      });
+      return res;
+
+   } catch (error) {
+      return error;
+   };
+};
+
 export const detailOrder = async (id, token) => {
    try {
       const res = await axios.post(`${URL}/api/v1/customer/order/${id}`, { id }, {
-         headers: { "x-acess-token": token }
+         headers: {
+            "x-acess-token": token,
+            "Cache-Control": "max-age=0",
+         }
       });
       return res;
 

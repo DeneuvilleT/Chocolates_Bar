@@ -17,14 +17,14 @@ const nodeMail = async (toMail) => {
    });
 
    const info = await transporter.sendMail({
-      from: `"Chocolate's Bar" <contact@chocolaté-bar.store>`,
+      from: `"Chocolate's Bar" <contact@chocolate-bar.site>`,
       to: toMail,
       subject: "Vérification de votre adresse mail",
       text: "Bienvenue sur le Chocolate's Bar",
       html: `<b>Bienvenue sur le Chocolate's Bar</b><p>Cliquez sur le lien pour valider et activer votre compte.<p><a href='${process.env.URL_DOMAIN}/#/customer/updateValidate/${toMail}'>Cliquez ici</a>`
    });
 
-   console.log("Message sent: %s", info.messageId);
+   console.log("Message sent: %s", info);
 };
 
 export default nodeMail;

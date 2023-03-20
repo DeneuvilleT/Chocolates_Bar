@@ -11,9 +11,8 @@ router.get("/:id", checkToken, getOne);
 router.get("/load/:id", checkToken, loadDatas);
 router.get("/updateValidate/:email", updateEmail);
 
-router.put("/update/picture/:id", checkToken, updatePicture);
 router.patch("/update/:id", checkToken, updateInfos);
 router.post("/order/:id", checkToken, loadOrder);
-router.post("/picture", loadPicture);
+router.post("/picture/:id", checkToken, loadPicture);
 
 export default router;
